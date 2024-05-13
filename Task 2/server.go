@@ -11,6 +11,12 @@ import (
 func handleConnection(conn net.Conn, file *os.File) {
 	defer conn.Close()
 
+	_, err := file.Seek(0, 0)
+	if err != nil {
+		log.Panicln("Error can not seeking", err)
+		return
+	}
+
 	// Create a buffer to read the file chunk by chunk
 	buffer := make([]byte, 1024)
 	for {

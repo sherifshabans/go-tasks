@@ -8,7 +8,7 @@ import (
 
 func main() {
 	// Connect to the server
-	connection, err := net.Dial("tcp", "localhost:8080") // Connect to the server
+	connection, err := net.Dial("tcp", "192.168.62.14:8080") // Connect to the server
 	if err != nil {
 		log.Fatal("Error connecting to server:", err) // Print error if unable to connect
 	}
@@ -24,7 +24,7 @@ func main() {
 	defer file.Close() // Close the file when main function returns
 
 	// Specify the number of bytes to receive
-	bytesToReceive := 150 // Example: Receive 150 bytes
+	bytesToReceive := 50 // Example: Receive 150 bytes
 
 	// Read data from connection and write it to file
 	buffer := make([]byte, bytesToReceive)        // Create a buffer to store received data
